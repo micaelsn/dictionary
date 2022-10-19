@@ -14,11 +14,10 @@ class WordRepository implements IWordRepository {
   );
 
   @override
-  Future<Either<Failure, Word>> getWord(String word) async {
+  Future<Either<Failure, List<Word>>> getWord(String word) async {
     try {
       var result = await datasource.getWord(word);
-      var wordResult = WordModel.fromMap(result);
-      return Right(wordResult);
+      return Right(result);
     } on Failure catch (error) {
       return Left(error);
     }

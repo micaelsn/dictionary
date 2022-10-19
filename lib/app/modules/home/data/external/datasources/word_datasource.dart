@@ -1,10 +1,12 @@
 //
 
+import 'package:dictionary/app/modules/home/domain/entities/word.dart';
 import 'package:dictionary/shared/api/main.dart';
 import 'package:dictionary/shared/helpers/main.dart';
 import 'package:dio/dio.dart';
 
-import '../data/datasource/word_datasource.dart';
+import '../../data/datasource/word_datasource.dart';
+import '../../models/word_model.dart';
 
 class WordDatasource implements IWordDatasource {
   final ClientAPI client;
@@ -12,13 +14,13 @@ class WordDatasource implements IWordDatasource {
   WordDatasource(this.client);
 
   @override
-  Future<Map<String, dynamic>> getWord(String word) async {
+  Future<List<Word>> getWord(String word) async {
     var res;
     try {
-      final response = await client.get("/api/v2/entries/en/${word}");
+      final response = await client.get("/api/v2/entries/en/$word");
 
       if (response.statusCode == 200) {
-        res = response.data;
+        res = (response.data as List).map((e) => WordModel.fromMap(e)).toList();
       }
     } on DioError catch (_) {
       throw DatasourceError(message: "Falha");

@@ -5,7 +5,7 @@ import 'package:dictionary/shared/helpers/main.dart';
 import '../repositories/word_repository.dart';
 
 abstract class IWordUseCase {
-  Future<Either<Failure, Word>> call({required String word});
+  Future<Either<Failure, List<Word>>> call({required String word});
 }
 
 class WordUseCase implements IWordUseCase {
@@ -16,6 +16,6 @@ class WordUseCase implements IWordUseCase {
   );
 
   @override
-  Future<Either<Failure, Word>> call({required String word}) async =>
+  Future<Either<Failure, List<Word>>> call({required String word}) async =>
       await repository.getWord(word);
 }

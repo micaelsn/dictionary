@@ -4,5 +4,5 @@ import 'package:dictionary/shared/helpers/main.dart';
 import '../entities/word.dart';
 
 abstract class IWordRepository {
-  Future<Either<Failure, Word>> getWord(String word);
+  Future<Either<Failure, List<Word>>> getWord(String word);
 }
