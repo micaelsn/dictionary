@@ -8,10 +8,10 @@ abstract class IWordUseCase {
   Future<Either<Failure, Word>> call({required String word});
 }
 
-class WordUseCaseImpl implements IWordUseCase {
+class WordUseCase implements IWordUseCase {
   IWordRepository repository;
 
-  WordUseCaseImpl(
+  WordUseCase(
     this.repository,
   );
 
