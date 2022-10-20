@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import '../../domain/entities/word.dart';
+import '../entities/main.dart';
 
 class WordModel extends Word {
   String? origin;

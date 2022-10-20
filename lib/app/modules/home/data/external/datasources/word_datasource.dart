@@ -1,12 +1,9 @@
-//
-
-import 'package:dictionary/app/modules/home/domain/entities/word.dart';
+import 'package:dictionary/shared/common/main.dart';
 import 'package:dictionary/shared/api/main.dart';
 import 'package:dictionary/shared/helpers/main.dart';
 import 'package:dio/dio.dart';
 
 import '../../data/datasource/word_datasource.dart';
-import '../../models/word_model.dart';
 
 class WordDatasource implements IWordDatasource {
   final ClientAPI client;

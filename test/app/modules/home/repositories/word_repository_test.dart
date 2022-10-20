@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:dictionary/app/modules/home/data/infra/datasource/word_datasource.dart';
-import 'package:dictionary/app/modules/home/data/infra/repositories/word_repository.dart';
-import 'package:dictionary/app/modules/home/domain/entities/word.dart';
-import 'package:dictionary/app/modules/home/data/models/word_model.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:dartz/dartz.dart';
+
+import 'package:dictionary/app/modules/home/data/infra/datasource/word_datasource.dart';
+import 'package:dictionary/app/modules/home/data/infra/repositories/word_repository.dart';
+import 'package:dictionary/shared/common/main.dart';
 
 class WordDatasourceMock extends Mock implements IWordDatasource {}
 
