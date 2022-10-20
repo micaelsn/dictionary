@@ -1,3 +1,5 @@
+import 'package:dictionary/shared/common/main.dart';
+import 'package:dictionary/shared/helpers/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
@@ -11,33 +13,48 @@ class HistoryPage extends StatefulWidget {
   _HistoryPageState createState() => _HistoryPageState();
 }
 
-class _HistoryPageState extends ModularState<HistoryPage, HistoryStore> {
+class _HistoryPageState extends State<HistoryPage> {
+  final store = Modular.get<HistoryStore>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter'),
+        title: const Text('Word List'),
       ),
-      body: ScopedBuilder<HistoryStore, Exception, int>(
+      body: ScopedBuilder<HistoryStore, Failure, List<Word>>(
         store: store,
         onState: (_, counter) {
-          return Padding(
-            padding: EdgeInsets.all(10),
-            child: Text('$counter'),
-          );
+          return GridView.builder(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 200,
+                  childAspectRatio: 3 / 2,
+                  crossAxisSpacing: 20,
+                  mainAxisSpacing: 20),
+              itemCount: store.state.length,
+              itemBuilder: (BuildContext ctx, index) {
+                var word = store.state[index];
+
+                return Container(
+                  alignment: Alignment.center,
+                  child: Text(
+                    word.word ?? '',
+                    style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w700),
+                  ),
+                );
+              });
         },
         onError: (context, error) => Center(
           child: Text(
-            'Too many clicks',
+            'Words do not found.',
             style: TextStyle(color: Colors.red),
           ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          store.increment();
-        },
-        child: Icon(Icons.add),
       ),
     );
   }

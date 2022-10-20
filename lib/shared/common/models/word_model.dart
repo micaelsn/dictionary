@@ -3,10 +3,6 @@ import 'dart:convert';
 import '../entities/main.dart';
 
 class WordModel extends Word {
-  String? origin;
-  String? phonetic;
-  String? word;
-
   WordModel({super.word, super.phonetic, super.origin});
 
   Map<String, dynamic> toMap() {
