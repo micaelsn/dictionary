@@ -1,3 +1,4 @@
+import 'package:dictionary/shared/helpers/errors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
@@ -11,33 +12,40 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeStore> {
+class _HomePageState extends State<HomePage> {
+  final store = Modular.get<HomeStore>();
+
+  @override
+  void initState() {
+    super.initState();
+    store.onChangePage(0);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Counter'),
-      ),
-      body: ScopedBuilder<HomeStore, Exception, int>(
+      body: RouterOutlet(),
+      bottomNavigationBar: ScopedBuilder<HomeStore, Failure, int>(
         store: store,
         onState: (_, counter) {
-          return Padding(
-            padding: EdgeInsets.all(10),
-            child: Text('$counter'),
-          );
+          return BottomNavigationBar(
+              currentIndex: store.state,
+              onTap: store.onChangePage,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.list),
+                  label: "Word List",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.history),
+                  label: "History",
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.favorite),
+                  label: "Favorites",
+                ),
+              ]);
         },
-        onError: (context, error) => Center(
-          child: Text(
-            'Too many clicks',
-            style: TextStyle(color: Colors.red),
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          store.increment();
-        },
-        child: Icon(Icons.add),
       ),
     );
   }

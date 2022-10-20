@@ -1,20 +1,26 @@
+import 'package:dictionary/shared/helpers/errors.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
 
-class HomeStore extends NotifierStore<Exception, int> {
+import '../domain/errors/errors.dart';
+
+class HomeStore extends NotifierStore<Failure, int> {
   HomeStore() : super(0);
 
-  Future<void> increment() async {
-    setLoading(true);
+  // setPage(int page) => update(page);
 
-    await Future.delayed(Duration(seconds: 1));
-
-    int value = state + 1;
-    if (value < 5) {
-      update(value);
-    } else {
-      setError(Exception('Error: state not can be > 4'));
+  void onChangePage(int page) {
+    switch (page) {
+      case 0:
+        Modular.to.navigate('/word-list/');
+        break;
+      case 1:
+        Modular.to.navigate('/history/');
+        break;
+      case 2:
+        Modular.to.navigate('/favorites/');
+        break;
     }
-
-    setLoading(false);
+    update(page);
   }
 }
