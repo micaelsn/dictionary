@@ -6,8 +6,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 import '../stores/history_store.dart';
 
 class HistoryPage extends StatefulWidget {
-  final String title;
-  const HistoryPage({Key? key, this.title = "History"}) : super(key: key);
+  const HistoryPage({Key? key}) : super(key: key);
 
   @override
   _HistoryPageState createState() => _HistoryPageState();
@@ -20,7 +19,7 @@ class _HistoryPageState extends State<HistoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Word List'),
+        title: const Text('History'),
       ),
       body: ScopedBuilder<HistoryStore, Failure, List<Word>>(
         store: store,

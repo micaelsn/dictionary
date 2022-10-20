@@ -20,7 +20,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Word List'),
+        title: const Text('Favorites'),
       ),
       body: ScopedBuilder<FavoritesStore, Failure, List<Word>>(
         store: store,
