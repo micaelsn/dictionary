@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_triple/flutter_triple.dart';
-import 'home_store.dart';
+import '../stores/home_store.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
