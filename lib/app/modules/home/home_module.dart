@@ -1,6 +1,7 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import '../favorites/favorites_module.dart';
 import '../history/history_module.dart';
+import '../word_details/word_details_module.dart';
 import '../word_list/word_list_module.dart';
 import 'stores/home_store.dart';
 
@@ -19,5 +20,6 @@ class HomeModule extends Module {
       ModuleRoute('/history', module: HistoryModule()),
       ModuleRoute('/favorites', module: FavoritesModule()),
     ]),
+    ModuleRoute('/word-details', module: WordDetailsModule())
   ];
 }

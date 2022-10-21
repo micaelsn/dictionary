@@ -35,14 +35,18 @@ class _WordListPageState extends State<WordListPage> {
               itemBuilder: (BuildContext ctx, index) {
                 var word = store.state[index];
 
-                return Container(
-                  alignment: Alignment.center,
-                  child: Text(
-                    word.word ?? '',
-                    style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                        fontWeight: FontWeight.w700),
+                return InkWell(
+                  onTap: () =>
+                      Modular.to.pushNamed('/word-details/${word.word}'),
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      word.word ?? '',
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w700),
+                    ),
                   ),
                 );
               });
