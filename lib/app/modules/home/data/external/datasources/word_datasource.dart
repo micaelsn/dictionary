@@ -1,9 +1,10 @@
-import 'package:dictionary/shared/common/main.dart';
-import 'package:dictionary/shared/api/main.dart';
-import 'package:dictionary/shared/helpers/main.dart';
 import 'package:dio/dio.dart';
 
-import '../../data/datasource/word_datasource.dart';
+import 'package:dictionary/shared/api/main.dart';
+import 'package:dictionary/shared/common/main.dart';
+import 'package:dictionary/shared/helpers/main.dart';
+
+import '../../infra/datasource/word_datasource.dart';
 
 class WordDatasource implements IWordDatasource {
   final ClientAPI client;
