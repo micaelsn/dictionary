@@ -11,7 +11,11 @@ ThemeData makeAppTheme() {
       backgroundColor: Colors.black,
       textTheme: TextTheme(
           headline1: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: primaryColor),
+          headline2: TextStyle(
               fontSize: 20, fontWeight: FontWeight.bold, color: primaryColor),
+          headline3: TextStyle(
+              fontSize: 18, fontWeight: FontWeight.bold, color: primaryColor),
           bodyText1: TextStyle(fontSize: 15, color: primaryColor),
           bodyText2: TextStyle(fontSize: 14, color: primaryColor)),
       inputDecorationTheme: InputDecorationTheme(

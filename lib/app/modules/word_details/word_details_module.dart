@@ -6,7 +6,7 @@ import 'presenter/word_details_page.dart';
 class WordDetailsModule extends Module {
   @override
   final List<Bind> binds = [
-    Bind.lazySingleton((i) => WordDetailsStore()),
+    Bind.lazySingleton((i) => WordDetailsStore(i())),
   ];
 
   @override
