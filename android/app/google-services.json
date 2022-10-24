@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1098119765462",
+    "firebase_url": "https://madoka-c72c0.firebaseio.com",
+    "project_id": "madoka-c72c0",
+    "storage_bucket": "madoka-c72c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098119765462:android:77fd1bc5194d16f94c5877",
+        "android_client_info": {
+          "package_name": "com.example.dictionary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098119765462-lj362d5c3ipbaa5pc0pcpd5s25lccv3j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCWg2busDdwGjUYhnRZwdbFtTWxSVb8r7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098119765462-lj362d5c3ipbaa5pc0pcpd5s25lccv3j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1098119765462-buj2ioa56n8vsd7tc8e75f19l70hjv8i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "dictionary-app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
