@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../shared/api/main.dart';
-import '../shared/storage/storage.dart';
+import '../shared/storage/main.dart';
 import 'modules/home/home_module.dart';
 
 class AppModule extends Module {

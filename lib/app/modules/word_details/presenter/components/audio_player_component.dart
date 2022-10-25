@@ -21,7 +21,11 @@ class _AudioPlayerComponentState extends State<AudioPlayerComponent> {
 
   init() async {
     if (widget.phonetic.audio?.isNotEmpty == true) {
-      await player.setSourceUrl(widget.phonetic.audio!);
+      try {
+        await player.setSourceUrl(widget.phonetic.audio!);
+      } catch (e) {
+        print(e.toString());
+      }
     }
   }
 

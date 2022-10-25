@@ -41,10 +41,6 @@ class _WordComponentState extends State<WordComponent> {
               "Meanings",
               style: Theme.of(context).textTheme.headline2,
             ),
-            // Text(
-            //   widget.word.meanings.map((meaning) => null),
-            //   style: Theme.of(context).textTheme.bodyText1,
-            // ),
             ...meaning(widget.word.meanings),
           ],
         ),
