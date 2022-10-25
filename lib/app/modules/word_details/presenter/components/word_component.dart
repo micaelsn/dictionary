@@ -1,6 +1,8 @@
 import 'package:dictionary/shared/common/main.dart';
 import 'package:flutter/material.dart';
 
+import 'audio_player_component.dart';
+
 class WordComponent extends StatefulWidget {
   final Word word;
   const WordComponent({Key? key, required this.word}) : super(key: key);
@@ -33,6 +35,8 @@ class _WordComponentState extends State<WordComponent> {
               ),
             ),
             const SizedBox(height: 15),
+            ...audioPlayer(widget.word.phonetics),
+            const SizedBox(height: 15),
             Text(
               "Meanings",
               style: Theme.of(context).textTheme.headline2,
@@ -41,7 +45,7 @@ class _WordComponentState extends State<WordComponent> {
             //   widget.word.meanings.map((meaning) => null),
             //   style: Theme.of(context).textTheme.bodyText1,
             // ),
-            ...meaning(widget.word.meanings)
+            ...meaning(widget.word.meanings),
           ],
         ),
       ),
@@ -64,5 +68,9 @@ class _WordComponentState extends State<WordComponent> {
           '- ${e?.definition ?? ''}',
           textAlign: TextAlign.start,
         ));
+  }
+
+  audioPlayer(List<Phonetic?>? phonetics) {
+    return phonetics?.map((e) => AudioPlayerComponent(phonetic: e!));
   }
 }
