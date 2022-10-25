@@ -21,7 +21,7 @@ This projext was build in a Monolith, you can see a example clicking [here](http
 
 # IV - API
 
-The API used in this project was [Dictionary API](https://dictionaryapi.dev/)
+The API used in this project was [Dictionary API](https://dictionaryapi.dev/) and Firebase for the home screen list of words.
 
 # V - Resources
 
