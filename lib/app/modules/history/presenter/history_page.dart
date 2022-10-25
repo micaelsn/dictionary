@@ -4,6 +4,7 @@ import 'package:flutter_triple/flutter_triple.dart';
 
 import 'package:dictionary/shared/helpers/main.dart';
 
+import '../../../../shared/ui/main.dart';
 import '../stores/history_store.dart';
 
 class HistoryPage extends StatefulWidget {
@@ -41,7 +42,7 @@ class _HistoryPageState extends State<HistoryPage> {
                 itemBuilder: (BuildContext ctx, index) {
                   var word = state[index];
 
-                  return wordCard(word);
+                  return WordCard(word: word);
                 });
           }
 
@@ -57,22 +58,5 @@ class _HistoryPageState extends State<HistoryPage> {
         ),
       ),
     );
-  }
-
-  Widget wordCard(String word) {
-    return Card(
-        child: InkWell(
-            onTap: () => Modular.to.pushNamed('/word-details/${word}'),
-            child: Container(
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
-              child: Text(
-                word,
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700),
-              ),
-            )));
   }
 }

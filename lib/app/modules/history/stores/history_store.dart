@@ -17,16 +17,15 @@ class HistoryStore extends NotifierStore<Failure, List<String>> {
   Future<void> getWords() async {
     setLoading(true);
 
-    var list = await storage.select('history');
-    print(list);
+    var map = await storage.select('history');
 
-    update((list as List).map((e) => e.toString()).toList());
+    update(map?.values.map((e) => e.toString()).toList() ?? []);
     setLoading(false);
   }
 
   void removeHistory() {
     setLoading(true);
-    storage.delete('history');
+    storage.deleteAll('history');
     update([]);
     setLoading(false);
   }

@@ -2,11 +2,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
 abstract class IStorageApp {
-  Future<dynamic> select(String index);
-  void add(dynamic value);
-  void put(String index, dynamic value);
-  void delete(String index);
-  void deleteAll();
+  Future<Map<String, dynamic>?> select(String index);
+  void put(String index, String value);
+  void delete(String index, String value);
+  void deleteAll(String index);
 }
 
 class StorageApp implements IStorageApp {
@@ -20,44 +19,38 @@ class StorageApp implements IStorageApp {
   }
 
   @override
-  Future<dynamic> select(String index) async {
+  Future<Map<String, dynamic>?> select(String index) async {
     var box = await openHiveBox(db);
-// var list = box.get(index);
-    return box.get(index);
+    Map<String, dynamic>? map = await box.get(index);
+    return map;
   }
 
   @override
-  Future<List> selectAll() async {
+  put(String index, String value) async {
     var box = await openHiveBox(db);
+    var map = await select(index);
+    map ??= {};
 
-    return box.values.toList();
+    box.put(index, {
+      ...map,
+      ...{value: value}
+    });
   }
 
   @override
-  put(String index, dynamic value) async {
+  delete(String index, String value) async {
     var box = await openHiveBox(db);
-    var list = await select(index);
 
-    list = list != null ? (list as List) : [];
+    Map<String, dynamic>? map = await select(index);
+    map ??= {};
+    map.remove(value);
 
-    box.put(index, [...list, value]);
+    box.put(index, map);
   }
 
   @override
-  add(dynamic value) async {
-    var box = await openHiveBox(db);
-    box.add(value);
-  }
-
-  @override
-  delete(String index) async {
+  void deleteAll(String index) async {
     var box = await openHiveBox(db);
     box.delete(index);
-  }
-
-  @override
-  void deleteAll() async {
-    var box = await openHiveBox(db);
-    box.deleteFromDisk();
   }
 }

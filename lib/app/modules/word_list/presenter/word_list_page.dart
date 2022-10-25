@@ -1,4 +1,5 @@
 import 'package:dictionary/shared/common/main.dart';
+import 'package:dictionary/shared/ui/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutterfire_ui/firestore.dart';
@@ -50,26 +51,9 @@ class _WordListPageState extends State<WordListPage> {
                       }
 
                       final word = snapshot.docs[index].data();
-                      return wordCard(word);
+                      return WordCard(word: word.word!);
                     });
               }
             }));
-  }
-
-  Widget wordCard(Word word) {
-    return Card(
-        child: InkWell(
-            onTap: () => Modular.to.pushNamed('/word-details/${word.word}'),
-            child: Container(
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
-              child: Text(
-                word.word ?? '',
-                style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w700),
-              ),
-            )));
   }
 }
