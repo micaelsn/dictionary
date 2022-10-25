@@ -25,6 +25,7 @@ The API used in this project was [Dictionary API](https://dictionaryapi.dev/) an
 
 # V - Resources
 
+- [Link of the apresantation](https://www.loom.com/embed/450fb8d92d4c4ddba70286385a38c89d)
 - [Modular](https://pub.dev/packages/flutter_modular)
 - [Dartz](https://pub.dev/packages/dartz)
 - [Dio](https://pub.dev/packages/dio)
