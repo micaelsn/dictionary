@@ -2,7 +2,7 @@
 
 Project to Coodesh's selection process for Flutter Developer position: [Dictionary](https://lab.coodesh.com/micaelnascimentocc/dictionary).
 
-# II Getting Started
+# II - Getting Started
 
 This project is a starting point for a Flutter application.
 
@@ -29,8 +29,8 @@ The API used in this project was [Dictionary API](https://dictionaryapi.dev/)
 - [Dartz](https://pub.dev/packages/dartz)
 - [Dio](https://pub.dev/packages/dio)
 - [Triple](https://pub.dev/packages/flutter_triple)
-- [FirebaseCore](hhttps://pub.dev/packages/firebase_core)
-- [FlutterFire_ui](hhttps://pub.dev/packages/flutterfire_ui)
-- [CloudFirestore](hhttps://pub.dev/packages/cloud_firestore)
-- [AudioPlayers](hhttps://pub.dev/packages/audioplayers)
-- [Hive](hhttps://pub.dev/packages/hive)
+- [FirebaseCore](https://pub.dev/packages/firebase_core)
+- [FlutterFire_ui](https://pub.dev/packages/flutterfire_ui)
+- [CloudFirestore](https://pub.dev/packages/cloud_firestore)
+- [AudioPlayers](https://pub.dev/packages/audioplayers)
+- [Hive](https://pub.dev/packages/hive)
