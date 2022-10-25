@@ -21,8 +21,9 @@ class StorageApp implements IStorageApp {
   @override
   Future<Map<String, dynamic>?> select(String index) async {
     var box = await openHiveBox(db);
-    Map<String, dynamic>? map = await box.get(index);
-    return map;
+    var map = await box.get(index);
+
+    return map == null ? {} : Map<String, dynamic>.from(map);
   }
 
   @override
