@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     store.onChangePage(0);
+    store.init(context);
   }
 
   @override
