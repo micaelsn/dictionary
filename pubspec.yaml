@@ -42,6 +42,10 @@ dependencies:
   cloud_firestore: ^3.1.7
   audioplayers: ^1.1.1
   hive_flutter: ^1.1.0
+  flutter_local_notifications: ^9.4.0
+  timezone:
+  flutter_native_timezone:
+  provider:
 
 dev_dependencies:
   flutter_test:
